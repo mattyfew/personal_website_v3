@@ -1,0 +1,9 @@
+/* @font-face { font-family: 'Muli'; src: url('/rockstar-code/wp-content/themes/rockstar/fonts/Muli-Regular.ttf'); } */
+
+html,
+body {
+    margin: 0;
+    color: white;
+    background: #0a0808;
+    font-family: 'Arial';
+}

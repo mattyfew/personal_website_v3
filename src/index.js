@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import App from './App'
+import Admin from './Admin'
 
-function App() {
-    return (
-        <h1>Hello World</h1>
-    )
+let elem
+if (location.pathname == "/mf-admin") {
+    elem = <Admin />
+} else {
+    elem = <App />
 }
 
-ReactDOM.render(<App />, document.querySelector('main'))
+ReactDOM.render(elem, document.querySelector('main'))
