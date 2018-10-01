@@ -1,19 +1,13 @@
 import React, { Component } from 'react'
 
-class Blog extends Component {
-
-    componentDidMount() {
-
-    }
-
+class CreatePost extends Component {
     render() {
         return (
             <div>
-                <h1>Blog</h1>
-
+                CreatePost
             </div>
         )
     }
 }
 
-export default Blog
+export default CreatePost
