@@ -20,8 +20,8 @@ class Nav extends Component {
         this.state = {}
     }
 
-    hideFixedMenu = () => this.setState({ fixed: false })
-    showFixedMenu = () => this.setState({ fixed: true })
+    // hideFixedMenu = () => this.setState({ fixed: false })
+    // showFixedMenu = () => this.setState({ fixed: true })
 
     render () {
         return (
