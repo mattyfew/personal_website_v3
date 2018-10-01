@@ -8,16 +8,14 @@ class App extends Component {
     render() {
         return (
             <div id="app-component">
-                <Nav />
-                <h1>This is App</h1>
 
                 <BrowserRouter>
-                    <div id="browserrouter-component">
-                        <Link to="/about">Learn More</Link>
+                    <React.Fragment>
+                        <Nav />
 
                         <Route exact path="/" component={Home} />
                         <Route exact path="/about" component={About} />
-                    </div>
+                    </React.Fragment>
                 </BrowserRouter>
             </div>
         )

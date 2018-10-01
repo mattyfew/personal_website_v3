@@ -7,3 +7,21 @@ body {
     background: #0a0808;
     font-family: 'Arial';
 }
+
+.nav-logo {
+    height: 35px;
+}
+
+.ui.menu {
+    background-color: #1e272e;
+
+}
+
+.home-logo {
+    height: 175px
+}
+.home-container {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
