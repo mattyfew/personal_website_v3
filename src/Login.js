@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { login } from './actions'
+import { adminLogin } from './actions'
 
 class Login extends Component {
     constructor() {
@@ -24,7 +24,7 @@ class Login extends Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        this.props.dispatch(login(this.state))
+        this.props.dispatch(adminLogin(this.state))
     }
 
     render() {

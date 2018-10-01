@@ -21,6 +21,12 @@ app.use(express.static('public'))
 
 app.post('/admin-login', (req, res) => {
     console.log("inside post /admin-login", req.body)
+
+    res.cookie('authenticated', true)
+
+    res.json({
+        success: true
+    })
 })
 
 app.get('*', (req, res) => {

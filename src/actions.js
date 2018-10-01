@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export function login(creds) {
+export function adminLogin(creds) {
     return axios.post('/admin-login', creds)
         .then(resp => {
             return {
