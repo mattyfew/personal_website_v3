@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { adminLogin } from './actions'
+import { adminLogin } from '../actions'
 
 class Login extends Component {
     constructor() {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import Admin from './Admin'
+import Admin from './admin/Admin'
 
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'

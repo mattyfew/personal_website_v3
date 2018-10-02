@@ -1,20 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
 
 export default function(ComposedComponent) {
     class Authentication extends Component {
         componentWillMount() {
-            console.log("aaa");
             if (!this.props.authenticated) {
-                console.log("here");
-                push('/admin')
+                this.props.history.push('/')
             }
         }
 
         componentWillUpdate(nextProps) {
             if (!nextProps.authenticated) {
-                push('/')
+                this.props.history.push('/')
             }
         }
 
