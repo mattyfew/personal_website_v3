@@ -4,7 +4,7 @@ import CreatePost from './CreatePost'
 import Login from './Login'
 import AdminNav from './AdminNav'
 
-import requireAuth from '../requireAuth'
+// import requireAuth from '../requireAuth'
 
 class Admin extends Component {
     render() {
@@ -14,10 +14,11 @@ class Admin extends Component {
                 <HashRouter>
                     <div>
                         <AdminNav />
-                        <h1>You are in Admin</h1>
+                        <h1 id="admin-title">Admin</h1>
 
                         <Route exact path="/login" component={Login} />
-                        <Route exact path="/create" component={requireAuth(CreatePost)} />
+                        <Route exact path="/create" component={CreatePost} />
+
                     </div>
                 </HashRouter>
             </div>

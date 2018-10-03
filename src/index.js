@@ -6,11 +6,11 @@ import Admin from './admin/Admin'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import reduxPromise from 'redux-promise'
-import reducer from './reducer'
+import reducers from './reducers';
 import { routerMiddleware } from 'react-router-redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(reduxPromise)));
+const store = createStore(reducers, composeWithDevTools(applyMiddleware(reduxPromise)));
 let elem
 
 if (location.pathname == "/admin") {

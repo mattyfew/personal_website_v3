@@ -4,10 +4,10 @@ const INITIAL_STATE = {
 
 export default function reducer(state = INITIAL_STATE, action) {
     switch (action.type) {
-        case 'LOGIN_ADMIN':
-            state = Object.assign({}, state, {
-                authenticated: action.success
-            })
+        // case 'LOGIN_ADMIN':
+        //     state = Object.assign({}, state, {
+        //         authenticated: action.success
+        //     })
     }
 
     return state

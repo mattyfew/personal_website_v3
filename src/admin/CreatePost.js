@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import requireAuth from '../requireAuth'
 
 class CreatePost extends Component {
     render() {
@@ -10,4 +11,4 @@ class CreatePost extends Component {
     }
 }
 
-export default CreatePost
+export default requireAuth(CreatePost)

@@ -14,8 +14,8 @@ body {
 
 .ui.menu {
     background-color: #1e272e;
-
 }
+#nav { height: 100px; margin-bottom: 0; }
 
 .home-logo {
     height: 175px
@@ -28,4 +28,24 @@ body {
 
 input, button {
     color: black
+}
+
+#about-component p {
+    font-size: 24px
+}
+
+/* ==================== ADMIN ==================== */
+
+#admin-title {
+    text-align: center;
+}
+
+#logout-button {
+    color: #4183c4;
+    text-decoration: none;
+}
+#logout-button:hover {
+    color: #1e70bf;
+    text-decoration: none;
+    cursor: pointer;
 }

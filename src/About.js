@@ -4,9 +4,11 @@ class About extends Component {
     render() {
         return (
             <div id="about-component">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias sint amet, dolorum vero perferendis, omnis eos delectus dolore. Corporis eius voluptate provident modi quas, inventore sunt rem possimus impedit architecto!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias sint amet, dolorum vero perferendis, omnis eos delectus dolore. Corporis eius voluptate provident modi quas, inventore sunt rem possimus impedit architecto!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias sint amet, dolorum vero perferendis, omnis eos delectus dolore. Corporis eius voluptate provident modi quas, inventore sunt rem possimus impedit architecto!</p>
+                <p>I'm a full stack web developer with 4+ years of professional experience, based in Berlin. I've also worked as a programming teacher for 2+ years.</p>
+
+                <p>I like to find creative solutions for building websites.  To me, developing websites is an opportunity to create something fresh and new that will wow its users.</p>
+
+                <p>In my spare time, I like to write, perform, and produce music with my friends.</p>
             </div>
         )
     }

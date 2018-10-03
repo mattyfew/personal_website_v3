@@ -9,3 +9,13 @@ export function adminLogin(creds) {
             }
         })
 }
+
+export function adminLogout() {
+    return axios.post('/admin-logout')
+        .then(resp => {
+            return {
+                type: 'LOGOUT_ADMIN',
+                success: resp.data.success
+            }
+        })
+}

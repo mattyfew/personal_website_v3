@@ -1,30 +1,32 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-export default function(ComposedComponent) {
-    class Authentication extends Component {
-        componentWillMount() {
-            if (!this.props.authenticated) {
-                this.props.history.push('/')
-            }
+export default (ChildComponent) => {
+    class ComposedComponent extends Component {
+        componentDidMount() {
+            this.shouldNavigateAway()
         }
 
-        componentWillUpdate(nextProps) {
-            if (!nextProps.authenticated) {
+        componentDidUpdate(nextProps) {
+            this.shouldNavigateAway()
+        }
+
+        shouldNavigateAway() {
+            if (!this.props.authenticated) {
                 this.props.history.push('/')
             }
         }
 
         render() {
             return (
-                <ComposedComponent {...this.props}/>
+                <ChildComponent {...this.props}/>
             )
         }
     }
 
-    const mapStateToProps = (state) => {
-        return { authenticated: state.authenticated }
+    function mapStateToProps(state) {
+        return { authenticated: state.auth.authenticated }
     }
 
-    return connect(mapStateToProps)(Authentication)
+    return connect(mapStateToProps)(ComposedComponent)
 }
