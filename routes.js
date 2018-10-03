@@ -23,6 +23,20 @@ router.post('/create-post', (req, res) => {
             })
         })
         .catch(err => console.log('There was an error in POST /create-post', err))
+
+})
+
+router.get('/fetch-posts', (req, res) => {
+    console.log('inside GET /fetch-posts')
+
+    db.fetchPosts()
+        .then(posts => {
+            res.json({
+                success: true,
+                posts
+            })
+        })
+        .catch(err => console.log('There was an error in GET /fetch-posts', err))
 })
 
 module.exports = router

@@ -21,12 +21,22 @@ export function adminLogout() {
 }
 
 
+export function fetchPosts(){
+    return axios.get('/fetch-posts')
+        .then(resp => {
+            return {
+                type: 'FETCH_POSTS',
+                posts: resp.data.posts
+            }
+        })
+}
+
 export function createPost(info) {
     return axios.post('/create-post', info)
         .then(resp => {
             return {
                 type: 'CREATE_POST',
-                info
+                info: resp.data.info
             }
         })
 }
