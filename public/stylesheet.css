@@ -5,17 +5,18 @@ body {
     margin: 0;
     color: white;
     background: #0a0808;
-    font-family: 'Arial';
+    font-family: 'Montserrat', sans-serif;
 }
 
-.nav-logo {
-    height: 35px;
-}
-
-.ui.menu {
-    background-color: #1e272e;
-}
+.nav-logo { height: 35px; }
+.ui.menu { background-color: #1e272e; }
 #nav { height: 100px; margin-bottom: 0; }
+#nav .item {
+    font-size: 26px;
+}
+
+h1 { text-align: center; }
+
 
 .home-logo {
     height: 175px
@@ -49,3 +50,7 @@ input, button {
     text-decoration: none;
     cursor: pointer;
 }
+
+
+
+/* ==================== BLOG ==================== */

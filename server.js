@@ -19,25 +19,7 @@ app.use(cookieSession({
 
 app.use(express.static('public'))
 
-app.post('/admin-login', (req, res) => {
-    console.log("inside post /admin-login", req.body)
-
-    res.cookie('authenticated', true)
-
-    res.json({
-        success: true
-    })
-})
-
-app.post('/admin-logout', (req, res) => {
-    console.log("inside post /admin-logout", req.body)
-
-    res.cookie('authenticated', false)
-
-    res.json({
-        success: true
-    })
-})
+app.use(require('./routes'))
 
 app.get('*', (req, res) => {
     res.sendFile(`${__dirname}/public/index.html`)

@@ -19,3 +19,14 @@ export function adminLogout() {
             }
         })
 }
+
+
+export function createPost(info) {
+    return axios.post('/create-post', info)
+        .then(resp => {
+            return {
+                type: 'CREATE_POST',
+                info
+            }
+        })
+}

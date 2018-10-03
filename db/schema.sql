@@ -1,5 +1,5 @@
--- DROP TABLE IF EXISTS users;
--- DROP TABLE IF EXISTS posts;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS posts;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -11,6 +11,7 @@ CREATE TABLE users (
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255),
+    slug VARCHAR(100),
     content TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
