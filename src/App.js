@@ -20,7 +20,7 @@ class App extends Component {
                             <Route exact path="/" component={ Home } />
                             <Route exact path="/about" component={ About } />
                             <Route exact path="/blog" component={ Blog } />
-                            <Route exact path="/blog/:postSlug" component={ SinglePost } />
+                            <Route exact path="/blog/:slug" component={ SinglePost } />
                         </MainWrapper>
                     </React.Fragment>
                 </BrowserRouter>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPosts } from '../actions'
+import { Link } from 'react-router-dom'
 
 class Blog extends Component {
     constructor() {
@@ -15,10 +16,10 @@ class Blog extends Component {
 
     renderPosts() {
         return this.props.posts.map(item => (
-            <div className="post">
-                <h3>{ item.title }</h3>
-                <p>{ item.slug }</p>
-                <p>{ item.content }</p>
+            <div className="post" key={ item.id }>
+                <h3><Link to={`/blog/${item.slug}`}>{ item.title }</Link></h3>
+                <p>Slug: { item.slug }</p>
+                <p>Content: { item.content }</p>
             </div>
         ))
     }

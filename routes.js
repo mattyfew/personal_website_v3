@@ -39,4 +39,18 @@ router.get('/fetch-posts', (req, res) => {
         .catch(err => console.log('There was an error in GET /fetch-posts', err))
 })
 
+router.get('/fetch-post/:slug', (req, res) => {
+    console.log('inside GET /fetch-post', req.params.slug)
+
+    db.fetchPost(req.params.slug)
+        .then(activePost => {
+            console.log(activePost);
+            res.json({
+                success: true,
+                activePost
+            })
+        })
+        .catch(err => console.log('There was an error in GET /fetch-post', err))
+})
+
 module.exports = router

@@ -20,6 +20,7 @@ export function adminLogout() {
         })
 }
 
+// ====================== BLOG =======================
 
 export function fetchPosts(){
     return axios.get('/fetch-posts')
@@ -27,6 +28,16 @@ export function fetchPosts(){
             return {
                 type: 'FETCH_POSTS',
                 posts: resp.data.posts
+            }
+        })
+}
+
+export function fetchPost(slug){
+    return axios.get(`/fetch-post/${slug}`)
+        .then(resp => {
+            return {
+                type: 'FETCH_POST',
+                activePost: resp.data.activePost
             }
         })
 }

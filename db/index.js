@@ -18,12 +18,25 @@ exports.createPost = function(info) {
         .catch(err => console.log(err))
 }
 
-exports.fetchPosts = function(info) {
+exports.fetchPosts = function() {
     const q = `
         SELECT * FROM posts
     `
 
     return db.query(q)
         .then(results => results.rows)
+        .catch(err => console.log(err))
+}
+
+exports.fetchPost = function(slug) {
+    const q = `
+        SELECT * FROM posts WHERE slug = $1
+    `
+    const params = [ slug ]
+
+    console.log(params);
+
+    return db.query(q, params)
+        .then(results => results.rows[0])
         .catch(err => console.log(err))
 }

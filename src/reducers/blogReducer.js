@@ -1,4 +1,8 @@
-export default function (state = {}, action) {
+const INITIAL_STATE = {
+    activePost: {}
+}
+
+export default function (state = INITIAL_STATE, action) {
     switch(action.type) {
 
         case 'CREATE_POST':
