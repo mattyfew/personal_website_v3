@@ -30,6 +30,9 @@ h1 { text-align: center; }
 input, button {
     color: black
 }
+label {
+    color: white !important;
+}
 
 #about-component p {
     font-size: 24px

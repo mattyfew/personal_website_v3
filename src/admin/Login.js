@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { Form } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { adminLogin } from '../actions'
 
@@ -34,11 +35,14 @@ class Login extends Component {
             <div>
                 <h1>Please login to proceed</h1>
 
-                <form onSubmit={this.handleSubmit}>
-                    <input value={email} onChange={this.handleChange} name="email" placeholder="email" type="text"/>
-                    <input value={password} onChange={this.handleChange} name="password" placeholder="password" type="text"/>
-                    <button>Submit</button>
-                </form>
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Group widths='equal'>
+                        <Form.Input fluid label='Email' value={email} onChange={this.handleChange} placeholder='Email' />
+                        <Form.Input fluid label='Password' value={password} onChange={this.handleChange} placeholder='Password' />
+                    </Form.Group>
+                    <Form.Button>Submit</Form.Button>
+                </Form>
+
             </div>
         )
     }

@@ -34,8 +34,6 @@ exports.fetchPost = function(slug) {
     `
     const params = [ slug ]
 
-    console.log(params);
-
     return db.query(q, params)
         .then(results => results.rows[0])
         .catch(err => console.log(err))
