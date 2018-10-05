@@ -18,9 +18,7 @@ class Login extends Component {
     }
 
     handleChange(e) {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
+        this.setState({ [e.target.name]: e.target.value })
     }
 
     handleSubmit(e) {
@@ -37,8 +35,8 @@ class Login extends Component {
 
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group widths='equal'>
-                        <Form.Input fluid label='Email' value={email} onChange={this.handleChange} placeholder='Email' />
-                        <Form.Input fluid label='Password' value={password} onChange={this.handleChange} placeholder='Password' />
+                        <Form.Input fluid label='Email' value={email} onChange={this.handleChange} placeholder='Email' name='email' />
+                        <Form.Input fluid label='Password' value={password} onChange={this.handleChange} placeholder='Password' name='password' />
                     </Form.Group>
                     <Form.Button>Submit</Form.Button>
                 </Form>

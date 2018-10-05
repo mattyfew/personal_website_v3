@@ -25,14 +25,12 @@ class AdminNav extends Component {
 
     render () {
         return (
-            <div>
-                <Menu>
-                  <MenuItem><Link to="/"><img className="nav-logo" src="/img/logo-mf.svg" alt=""/></Link></MenuItem>
-                  <MenuItem><Link to="/admin">Admin</Link></MenuItem>
-                  <MenuItem><Link to="/create">Create Post</Link></MenuItem>
-                  <MenuItem>{this.renderButton()}</MenuItem>
-                </Menu>
-            </div>
+            <Menu>
+                <MenuItem><Link to="/"><img className="nav-logo" src="/img/logo-mf.svg" alt=""/></Link></MenuItem>
+                <MenuItem><Link to="/admin">Admin</Link></MenuItem>
+                <MenuItem><Link to="/create">Create Post</Link></MenuItem>
+                <MenuItem>{this.renderButton()}</MenuItem>
+            </Menu>
         )
     }
 }

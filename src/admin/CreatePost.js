@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
-import requireAuth from '../requireAuth'
+import { Form } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import requireAuth from '../requireAuth'
 import { createPost } from '../actions'
+
 
 class CreatePost extends Component {
     constructor() {
         super()
+
+        this.state = {
+            title: '',
+            slug: '',
+            content: ''
+        }
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -25,17 +33,20 @@ class CreatePost extends Component {
     }
 
     render() {
+        const { title, slug, content } = this.state
+
         return (
             <div>
                 <h1>CreatePost</h1>
 
-                <form onSubmit={ this.handleSubmit }>
-                    <input onChange={ this.handleChange }name="title" type="text"/>
-                    <input onChange={ this.handleChange }name="slug" type="text"/>
-                    <textarea onChange={ this.handleChange }name="content" type="text"/>
-
-                    <button>Create Post</button>
-                </form>
+                <Form onSubmit={ this.handleSubmit }>
+                    <Form.Group widths='equal'>
+                        <Form.Input fluid label='Title' value={title} onChange={this.handleChange} placeholder='Title' name="title" />
+                        <Form.Input fluid label='Slug' value={slug} onChange={this.handleChange} placeholder='Slug' name="slug" />
+                    </Form.Group>
+                    <Form.TextArea label='Content' value={content} onChange={this.handleChange} control='textarea' rows='3' placeholder='Content...' name='content' />
+                    <Form.Button>Submit</Form.Button>
+                </Form>
             </div>
         )
     }
