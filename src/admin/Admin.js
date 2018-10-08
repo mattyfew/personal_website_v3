@@ -24,7 +24,7 @@ class Admin extends Component {
                         <Route exact path="/login" component={ Login } />
                         <Route exact path="/create" component={ CreatePost } />
                         <Route exact path="/posts" component={ Posts } />
-                        <Route exact path="/posts/:slug" component={ EditPost } />
+                        <Route exact path="/post/:slug" component={ EditPost } />
                     </MainWrapper>
                 </div>
             </HashRouter>

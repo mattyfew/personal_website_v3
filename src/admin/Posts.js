@@ -18,8 +18,8 @@ class Posts extends Component {
         return this.props.posts.map(item => (
             <div className="post" key={ item.id }>
                 <div className="edit-card-options">
-                    <span><img src="/icons/edit-icon.svg" alt=""/></span>
-                    <span><img src="/icons/x-icon.svg" alt=""/></span>
+                    <Link to={`/post/${item.slug}`}><img src="/icons/edit-icon.svg" alt="edit"/></Link>
+                    <img src="/icons/x-icon.svg" alt="delete"/>
                 </div>
 
                 <h3><Link to={`/posts/${item.slug}`}>{ item.title }</Link></h3>
