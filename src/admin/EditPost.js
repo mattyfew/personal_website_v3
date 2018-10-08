@@ -1,53 +1,41 @@
 import React, { Component } from 'react'
 import { Form } from 'semantic-ui-react'
+// const { Input, Group, TextArea, Button } = Form
 import { connect } from 'react-redux'
 import requireAuth from '../requireAuth'
 import { fetchPost, editPost } from '../actions'
+import { reduxForm, Field } from 'redux-form'
+import { InputField, TextAreaField } from 'react-semantic-redux-form';
+
 
 class EditPost extends Component {
     constructor() {
         super()
-
-        this.state = {
-            title: '',
-            slug: '',
-            content: ''
-        }
-
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
     }
 
     componentDidMount() {
         this.props.dispatch(fetchPost(this.props.match.params.slug))
     }
 
-
-    handleChange(e) {
-        this.setState({
-            [ e.target.name ]: e.target.value
-        })
-    }
-
-    handleSubmit(e) {
-        e.preventDefault()
-
-        this.props.dispatch(editPost(this.state))
+    onSubmit(formProps) {
+        console.log(formProps);
+        this.props.dispatch(editPost(formProps))
     }
 
     render() {
-        const { title, slug, content } = this.props.activePost
+        const { handleSubmit } = this.props
 
         return (
             <div>
                 <h1>EditPost</h1>
 
-                <Form onSubmit={ this.handleSubmit }>
+                <Form onSubmit={ handleSubmit(this.onSubmit) }>
                     <Form.Group widths='equal'>
-                        <Form.Input fluid label='Title' defaultValue={title} onChange={this.handleChange} placeholder='Title' name="title" />
-                        <Form.Input fluid label='Slug' defaultValue={slug} onChange={this.handleChange} placeholder='Slug' name="slug" />
+                        <Field fluid label='Title' component={ InputField } placeholder='Title' name='title' type='text'/>
+                        <Field fluid label='Slug' component={ InputField } placeholder='Slug' name='slug' type='text'/>
                     </Form.Group>
-                    <Form.TextArea label='Content' defaultValue={content} onChange={this.handleChange} control='textarea' rows='3' placeholder='Content...' name='content' />
+                    <Field label='Content' component={ TextAreaField } control='textarea' rows='3' placeholder='Content...' name='content' />
                     <Form.Button>Submit</Form.Button>
                 </Form>
             </div>
@@ -55,10 +43,15 @@ class EditPost extends Component {
     }
 }
 
+EditPost = reduxForm({
+    form: 'editPostForm'
+})(EditPost)
+
 function mapStateToProps(state) {
     return {
-        activePost: state.blog.activePost
+        initialValues: state.blog.activePost,
+        enableReinitialize: true
     }
 }
 
-export default connect(mapStateToProps)(requireAuth(EditPost))
+export default connect(mapStateToProps)(EditPost)
