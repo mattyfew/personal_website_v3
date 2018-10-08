@@ -25,34 +25,26 @@ router.post('/create-post', (req, res) => {
 
 router.get('/fetch-posts', (req, res) => {
     db.fetchPosts()
-        .then(posts => {
-            res.json({
-                success: true,
-                posts
-            })
-        })
+        .then(posts => res.json({ success: true, posts }))
         .catch(err => console.log('There was an error in GET /fetch-posts', err))
 })
 
 router.get('/fetch-post/:slug', (req, res) => {
     db.fetchPost(req.params.slug)
-        .then(activePost => {
-            console.log(activePost);
-            res.json({
-                success: true,
-                activePost
-            })
-        })
+        .then(activePost => res.json({ success: true, activePost }))
         .catch(err => console.log('There was an error in GET /fetch-post', err))
 })
 
 router.post('/edit-post', (req, res) => {
     db.editPost(req.body)
-        .then(results => {
-            res.json({ success: true })
-        })
+        .then(() => res.json({ success: true }))
         .catch(err => console.log('There was an error in POST /edit-post', err))
+})
 
+router.delete('/delete-post', (req, res) => {
+    db.deletePost(req.query.postId)
+        .then(() => res.json({ success: true }))
+        .catch(err => console.log('There was an error in DELETE /delete-post', err))
 })
 
 module.exports = router

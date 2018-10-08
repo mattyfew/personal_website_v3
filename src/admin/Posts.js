@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchPosts } from '../actions'
+import { fetchPosts, deletePost } from '../actions'
 import { Link } from 'react-router-dom'
 
 class Posts extends Component {
@@ -15,11 +15,13 @@ class Posts extends Component {
     }
 
     renderPosts() {
-        return this.props.posts.map(item => (
+        const { posts, dispatch } = this.props
+
+        return posts.map(item => (
             <div className="post" key={ item.id }>
                 <div className="edit-card-options">
                     <Link to={`/post/${item.slug}`}><img src="/icons/edit-icon.svg" alt="edit"/></Link>
-                    <img src="/icons/x-icon.svg" alt="delete"/>
+                    <img onClick={ () => dispatch(deletePost(item.id)) } src="/icons/x-icon.svg" alt="delete"/>
                 </div>
 
                 <h3><Link to={`/posts/${item.slug}`}>{ item.title }</Link></h3>

@@ -49,3 +49,13 @@ exports.editPost = function({ title, slug, content, id }) {
 
     return db.query(q, params)
 }
+
+exports.deletePost = function(postId) {
+    const q = `
+        DELETE FROM posts
+        WHERE id = $1
+    `
+    const params = [ postId ]
+
+    return db.query(q, params)
+}

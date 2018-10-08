@@ -61,3 +61,14 @@ export function editPost(info) {
             }
         })
 }
+
+export function deletePost(postId) {
+    console.log("her");
+    return axios.delete('/delete-post', { params: { postId } })
+        .then(resp => {
+            return {
+                type: 'DELETE_POST',
+                postId
+            }
+        })
+}

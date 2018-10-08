@@ -17,11 +17,14 @@ export default function (state = INITIAL_STATE, action) {
             })
             break
         case 'CREATE_POST':
-            // TODO: something here
+            // TODO: add post to list of posts
             state = Object.assign({}, state)
             break
         case 'EDIT_POST':
-            // TODO: something here
+            state = Object.assign({}, state)
+            break
+        case 'DELETE_POST':
+            // TODO: remove post from list of posts
             state = Object.assign({}, state)
             break
     }
