@@ -39,6 +39,7 @@ label {
 }
 #main-wrapper { padding-top: 80px; }
 
+
 /* ==================== ADMIN ==================== */
 
 #admin-title {
@@ -58,7 +59,16 @@ label {
     cursor: pointer;
 }
 
-
+.post h3 {
+    margin-top: 0;
+}
+.edit-card-options {
+    float: right;
+}
+.edit-card-options img {
+    height: 25px;
+    margin-left: 8px;
+}
 
 /* ==================== BLOG ==================== */
 

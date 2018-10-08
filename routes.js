@@ -13,8 +13,6 @@ router.post('/admin-logout', (req, res) => {
 })
 
 router.post('/create-post', (req, res) => {
-    console.log('inside POST /create-post', req.body)
-
     db.createPost(req.body)
         .then(postId => {
             res.json({
@@ -26,8 +24,6 @@ router.post('/create-post', (req, res) => {
 })
 
 router.get('/fetch-posts', (req, res) => {
-    console.log('inside GET /fetch-posts')
-
     db.fetchPosts()
         .then(posts => {
             res.json({
@@ -39,8 +35,6 @@ router.get('/fetch-posts', (req, res) => {
 })
 
 router.get('/fetch-post/:slug', (req, res) => {
-    console.log('inside GET /fetch-post', req.params.slug)
-
     db.fetchPost(req.params.slug)
         .then(activePost => {
             console.log(activePost);
@@ -55,10 +49,10 @@ router.get('/fetch-post/:slug', (req, res) => {
 router.post('/edit-post', (req, res) => {
     db.editPost(req.body)
         .then(results => {
-            console.log("it worked");
-
             res.json({ success: true })
         })
+        .catch(err => console.log('There was an error in POST /edit-post', err))
+
 })
 
 module.exports = router

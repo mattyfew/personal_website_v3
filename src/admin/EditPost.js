@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import { Form } from 'semantic-ui-react'
-// const { Input, Group, TextArea, Button } = Form
 import { connect } from 'react-redux'
 import requireAuth from '../requireAuth'
 import { fetchPost, editPost } from '../actions'
 import { reduxForm, Field } from 'redux-form'
 import { InputField, TextAreaField } from 'react-semantic-redux-form';
-
 
 class EditPost extends Component {
     constructor() {
@@ -19,7 +17,6 @@ class EditPost extends Component {
     }
 
     onSubmit(formProps) {
-        console.log(formProps);
         this.props.dispatch(editPost(formProps))
     }
 
@@ -43,9 +40,6 @@ class EditPost extends Component {
     }
 }
 
-EditPost = reduxForm({
-    form: 'editPostForm'
-})(EditPost)
 
 function mapStateToProps(state) {
     return {
@@ -54,4 +48,5 @@ function mapStateToProps(state) {
     }
 }
 
+EditPost = reduxForm({ form: 'editPostForm' })(EditPost)
 export default connect(mapStateToProps)(EditPost)
