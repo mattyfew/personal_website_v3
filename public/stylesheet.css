@@ -37,11 +37,15 @@ label {
 #about-component p {
     font-size: 24px
 }
+#main-wrapper { padding-top: 80px; }
 
 /* ==================== ADMIN ==================== */
 
 #admin-title {
     text-align: center;
+    margin: 0;
+    padding: 8px 0;
+    background-color: #9C00DE;
 }
 
 #logout-button {

@@ -1,14 +1,11 @@
 const INITIAL_STATE = {
-    activePost: {}
+    activePost: {},
+    editPost: {},
+    posts: []
 }
 
 export default function (state = INITIAL_STATE, action) {
     switch(action.type) {
-
-        case 'CREATE_POST':
-            // TODO: something here
-            state = Object.assign({}, state)
-            break
         case 'FETCH_POSTS':
             state = Object.assign({}, state, {
                 posts: action.posts
@@ -18,6 +15,14 @@ export default function (state = INITIAL_STATE, action) {
             state = Object.assign({}, state, {
                 activePost: action.activePost
             })
+            break
+        case 'CREATE_POST':
+            // TODO: something here
+            state = Object.assign({}, state)
+            break
+        case 'EDIT_POST':
+            // TODO: something here
+            state = Object.assign({}, state)
             break
     }
     return state

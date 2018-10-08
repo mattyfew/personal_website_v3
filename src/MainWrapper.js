@@ -3,7 +3,7 @@ import { Grid } from 'semantic-ui-react'
 
 function MainWrapper(props) {
     return (
-        <Grid>
+        <Grid id="main-wrapper">
             <Grid.Column width={ 3 } id="left-gutter" />
 
             <Grid.Column width={ 10 } id="main-section" >

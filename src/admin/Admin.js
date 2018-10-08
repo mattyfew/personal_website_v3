@@ -4,6 +4,8 @@ import CreatePost from './CreatePost'
 import Login from './Login'
 import AdminNav from './AdminNav'
 import AdminHome from './AdminHome'
+import Posts from './Posts'
+import EditPost from './EditPost'
 import MainWrapper from '../MainWrapper'
 
 // import requireAuth from '../requireAuth'
@@ -11,21 +13,21 @@ import MainWrapper from '../MainWrapper'
 class Admin extends Component {
     render() {
         return (
-            <div>
-                <HashRouter>
-                    <div>
+            <HashRouter>
+                <div>
 
-                        <AdminNav />
-                        <h1 id="admin-title">Admin</h1>
+                    <AdminNav />
+                    <h1 id="admin-title">Admin</h1>
 
-                        <MainWrapper>
-                            <Route exact path="/" component={AdminHome} />
-                            <Route exact path="/login" component={Login} />
-                            <Route exact path="/create" component={CreatePost} />
-                        </MainWrapper>
-                    </div>
-                </HashRouter>
-            </div>
+                    <MainWrapper>
+                        <Route exact path="/" component={ AdminHome } />
+                        <Route exact path="/login" component={ Login } />
+                        <Route exact path="/create" component={ CreatePost } />
+                        <Route exact path="/posts" component={ Posts } />
+                        <Route exact path="/posts/:slug" component={ EditPost } />
+                    </MainWrapper>
+                </div>
+            </HashRouter>
         )
     }
 }

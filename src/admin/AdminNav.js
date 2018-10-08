@@ -25,9 +25,9 @@ class AdminNav extends Component {
 
     render () {
         return (
-            <Menu>
+            <Menu id="nav">
                 <MenuItem><Link to="/"><img className="nav-logo" src="/img/logo-mf.svg" alt=""/></Link></MenuItem>
-                <MenuItem><Link to="/admin">Admin</Link></MenuItem>
+                <MenuItem><Link to="/posts">Posts</Link></MenuItem>
                 <MenuItem><Link to="/create">Create Post</Link></MenuItem>
                 <MenuItem>{this.renderButton()}</MenuItem>
             </Menu>

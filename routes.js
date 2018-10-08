@@ -23,7 +23,6 @@ router.post('/create-post', (req, res) => {
             })
         })
         .catch(err => console.log('There was an error in POST /create-post', err))
-
 })
 
 router.get('/fetch-posts', (req, res) => {
@@ -51,6 +50,15 @@ router.get('/fetch-post/:slug', (req, res) => {
             })
         })
         .catch(err => console.log('There was an error in GET /fetch-post', err))
+})
+
+router.post('/edit-post', (req, res) => {
+    db.editPost(req.body)
+        .then(results => {
+            console.log("it worked");
+
+            res.json({ success: true })
+        })
 })
 
 module.exports = router

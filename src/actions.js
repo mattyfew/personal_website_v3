@@ -51,3 +51,13 @@ export function createPost(info) {
             }
         })
 }
+
+export function editPost(info) {
+    return axios.post('/edit-post', info)
+        .then(resp => {
+            return {
+                type: 'EDIT_POST',
+                info: resp.data.info
+            }
+        })
+}
