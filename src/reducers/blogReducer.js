@@ -25,7 +25,15 @@ export default function (state = INITIAL_STATE, action) {
             break
         case 'DELETE_POST':
             // TODO: remove post from list of posts
-            state = Object.assign({}, state)
+            if (!state.posts.length) {
+                return state
+            } else {
+                const posts = state.posts.filter(item => item.id !== action.postId)
+
+                state = Object.assign({}, state, {
+                    posts
+                })
+            }
             break
     }
     return state
