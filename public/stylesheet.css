@@ -42,14 +42,25 @@ h1 {
 input, button { color: black; }
 label { color: white !important; }
 
-#about-component p {
-    font-size: 24px
-}
+
 .main-wrapper {
     margin-top: 32px !important;
 }
 .main-gutter {
     padding: 0
+}
+
+
+/* ==================== ABOUT ==================== */
+
+
+
+#about-component p {
+    font-size: 24px;
+}
+#about-component li {
+    font-size: 24px;
+    padding: 8px 0;
 }
 
 

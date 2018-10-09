@@ -1,19 +1,45 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { Grid } from 'semantic-ui-react'
 
-class About extends Component {
-    render() {
-        return (
-            <div id="about-component">
-                <h1>About Matt</h1>
+function About() {
+    return (
+        <div id="about-component">
+            <h1>About Matt</h1>
 
-                <p>I'm a full stack web developer with 4+ years of professional experience, based in Berlin. I've also worked as a programming teacher for 2+ years.</p>
+            <p>Honestly, I'm not trying to take myself too seriously or anything so I'm not going to try to dress up this 'About Me' section with too many flowery descriptions of myself like JavaScript Iteration Ninja or Berlin Expats' Guiding Spirit.  So I'll just start with some basic facts about me...</p>
 
-                <p>I like to find creative solutions for building websites.  To me, developing websites is an opportunity to create something fresh and new that will <em>wow</em> its users.</p>
+            <p>I'm a full stack web developer from Long Island, New York, and I'm currently living in Berlin, Germany.  I've been working as a programming teacher for last 2+ years.  I've sinced transitioned back into a full time developer role as Senior Software Engineer at Takeaway.com.</p>
 
-                <p>In my spare time, I like to write, perform, and produce music with my friends.</p>
-            </div>
-        )
-    }
+            <p>I've recently decided I want to break into the blogosphere and start writing.  The articles I write span different categories - web development, self help, music, philosophy - I don't like to limit myself to one topic.  Perhaps later on I will settle into a niche market, but for now, I'm happily erratic and all over the place.</p>
+
+            <section>
+                <h2>Developer Profile</h2>
+                <Grid>
+                    <Grid.Column width={ 8 }>
+                        <ul>
+                            <li>PHP</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>Git</li>
+                            <li>SQL / Postgres</li>
+                            <li>MongoDB</li>
+                        </ul>
+                    </Grid.Column>
+                    <Grid.Column width={ 8 }>
+                        <ul>
+                            <li>JavaScript</li>
+                            <li>Node</li>
+                            <li>React</li>
+                            <li>Redux</li>
+                            <li>AngularJS</li>
+                            <li>Vue</li>
+                            <li>jQuery</li>
+                        </ul>
+                    </Grid.Column>
+                </Grid>
+            </section>
+        </div>
+    )
 }
 
 export default About
