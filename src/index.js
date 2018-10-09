@@ -10,13 +10,13 @@ import reducers from './reducers';
 import { routerMiddleware } from 'react-router-redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore(reducers, composeWithDevTools(applyMiddleware(reduxPromise)));
-let elem
-
-if (location.pathname == "/admin") {
-    elem = <Admin />
-} else {
-    elem = <App />
+let INITIAL_STATE = {
+    auth: {
+        authenticated: localStorage.getItem('loggedIn')
+    }
 }
+const store = createStore(reducers, INITIAL_STATE, composeWithDevTools(applyMiddleware(reduxPromise)))
+
+const elem = location.pathname == "/admin" ? <Admin /> : <App />
 
 ReactDOM.render(<Provider store={store}>{elem}</Provider>, document.querySelector('main'))

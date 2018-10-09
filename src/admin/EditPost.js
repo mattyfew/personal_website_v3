@@ -32,7 +32,7 @@ class EditPost extends Component {
                         <Field fluid label='Title' component={ InputField } placeholder='Title' name='title' type='text'/>
                         <Field fluid label='Slug' component={ InputField } placeholder='Slug' name='slug' type='text'/>
                     </Form.Group>
-                    <Field label='Content' component={ TextAreaField } control='textarea' rows='3' placeholder='Content...' name='content' />
+                    <Field autoHeight label='Content' component={ TextAreaField } control='textarea' rows='3' placeholder='Content...' name='content' />
                     <Form.Button>Submit</Form.Button>
                 </Form>
             </div>

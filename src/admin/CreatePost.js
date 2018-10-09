@@ -45,7 +45,9 @@ class CreatePost extends Component {
                         <Form.Input fluid label='Slug' value={slug} onChange={this.handleChange} placeholder='Slug' name="slug" />
                     </Form.Group>
                     <Form.TextArea label='Content' value={content} onChange={this.handleChange} control='textarea' rows='3' placeholder='Content...' name='content' />
-                    <Form.Button>Submit</Form.Button>
+
+                    {/* maybe put a spinning loader button after click? */}
+                    <Form.Button color='green' floated='right'>Create Post</Form.Button>
                 </Form>
             </div>
         )

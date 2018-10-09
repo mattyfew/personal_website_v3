@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { HashRouter, Route, Link } from 'react-router-dom'
 import CreatePost from './CreatePost'
 import Login from './Login'
@@ -14,10 +14,10 @@ class Admin extends Component {
     render() {
         return (
             <HashRouter>
-                <div>
+                <Fragment>
 
                     <AdminNav />
-                    <h1 id="admin-title">Admin</h1>
+                    <h2 id="admin-title">Admin</h2>
 
                     <MainWrapper>
                         <Route exact path="/" component={ AdminHome } />
@@ -26,7 +26,7 @@ class Admin extends Component {
                         <Route exact path="/posts" component={ Posts } />
                         <Route exact path="/post/:slug" component={ EditPost } />
                     </MainWrapper>
-                </div>
+                </Fragment>
             </HashRouter>
         )
     }

@@ -1,5 +1,6 @@
-/* @font-face { font-family: 'Muli'; src: url('/rockstar-code/wp-content/themes/rockstar/fonts/Muli-Regular.ttf'); } */
-
+* {
+    font-family: 'Montserrat', sans-serif !important;
+}
 html,
 body {
     margin: 0;
@@ -8,15 +9,26 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+/* ==================== NAV ==================== */
+
 .nav-logo { height: 35px; }
 .ui.menu { background-color: #1e272e; }
-#nav { height: 75px; margin-bottom: 0; }
-#nav .item {
+#nav { margin-bottom: 0; }
+#nav .item a, #logout-button {
+    color: white;
+    font-weight: 100;
     font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+#nav .item a:hover, #logout-button:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
-h1 { text-align: center; }
-
+h1 {
+    text-align: center;
+    font-size: 65px;
+}
 
 .home-logo {
     height: 175px
@@ -27,17 +39,18 @@ h1 { text-align: center; }
     align-items: center;
 }
 
-input, button {
-    color: black
-}
-label {
-    color: white !important;
-}
+input, button { color: black; }
+label { color: white !important; }
 
 #about-component p {
     font-size: 24px
 }
-#main-wrapper { padding-top: 80px; }
+.main-wrapper {
+    margin-top: 32px !important;
+}
+.main-gutter {
+    padding: 0
+}
 
 
 /* ==================== ADMIN ==================== */
@@ -47,16 +60,6 @@ label {
     margin: 0;
     padding: 8px 0;
     background-color: #9C00DE;
-}
-
-#logout-button {
-    color: #4183c4;
-    text-decoration: none;
-}
-#logout-button:hover {
-    color: #1e70bf;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 .post h3 {
@@ -74,10 +77,14 @@ label {
 }
 
 .spinner-wrapper { display: flex; justify-content: center; align-items: center; }
+
 /* ==================== BLOG ==================== */
 
 .post {
     border: 1px solid white;
     padding: 16px;
     margin: 16px 0;
+}
+#post-body p {
+    font-size: 22px;
 }

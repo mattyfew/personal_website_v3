@@ -3,11 +3,12 @@ import { connect } from 'react-redux'
 import { fetchPosts } from '../actions'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
+import { Grid } from 'semantic-ui-react'
+
 
 class Blog extends Component {
     constructor() {
         super()
-
         this.renderPosts = this.renderPosts.bind(this)
     }
 
@@ -17,14 +18,11 @@ class Blog extends Component {
 
     renderPosts() {
         return this.props.posts.map(item => {
-            console.log(moment(item.created_at).format("MM-DD-YYYY"));
             return (
-                <div className="post" key={ item.id }>
-                    <h3><Link to={`/blog/${item.slug}`}>{ item.title }</Link></h3>
-                    {/*<p>Date: { moment(item.created_at, moment.ISO_8601) }</p>*/}
-                    <p>Slug: { item.slug }</p>
-                    <p>Content: { item.content }</p>
-                </div>
+                <Grid.Row className="post" key={ item.id }>
+                    <Grid.Column width={ 4 }><h3><Link to={`/blog/${item.slug}`}>{ item.title }</Link></h3></Grid.Column>
+                    <Grid.Column width={ 12 }><p>Published: { moment(item.created_at).format("MMM DD, YYYY") }</p></Grid.Column>
+                </Grid.Row>
             )
         })
     }

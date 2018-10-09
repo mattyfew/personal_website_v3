@@ -3,6 +3,10 @@ import axios from 'axios'
 export function adminLogin(creds) {
     return axios.post('/admin-login', creds)
         .then(resp => {
+            if (resp.data.success) {
+                // should tokenize this later
+                localStorage.setItem('loggedIn', true)
+            }
             return {
                 type: 'LOGIN_ADMIN',
                 success: resp.data.success

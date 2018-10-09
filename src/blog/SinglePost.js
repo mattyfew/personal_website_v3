@@ -26,13 +26,13 @@ class SinglePost extends Component {
         }
 
         return (
-            <div id="single-post">
-                <h1>{ title }</h1>
+            <article id="single-post">
+                <header>
+                    <h1 id="single-post-title">{ title }</h1>
+                </header>
 
-                <main>
-                    <div dangerouslySetInnerHTML={{ __html: md.render(content) }} />
-                </main>
-            </div>
+                <div id="post-body" dangerouslySetInnerHTML={{ __html: md.render(content) }} />
+            </article>
         )
     }
 }

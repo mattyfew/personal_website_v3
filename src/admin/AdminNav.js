@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { adminLogout } from '../actions'
-
+import MainWrapper from '../MainWrapper'
 import { MenuItem, Menu } from 'semantic-ui-react'
 
 class AdminNav extends Component {
@@ -23,7 +23,7 @@ class AdminNav extends Component {
         }
     }
 
-    render () {
+    render() {
         return (
             <Menu id="nav">
                 <MenuItem><Link to="/"><img className="nav-logo" src="/img/logo-mf.svg" alt=""/></Link></MenuItem>
