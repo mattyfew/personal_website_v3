@@ -24,7 +24,7 @@ class Posts extends Component {
                     <img onClick={ () => dispatch(deletePost(item.id)) } src="/icons/x-icon.svg" alt="delete"/>
                 </div>
 
-                <h3><Link to={`/posts/${item.slug}`}>{ item.title }</Link></h3>
+                <h3><Link to={`/post/${item.slug}`}>{ item.title }</Link></h3>
                 <p>Slug: { item.slug }</p>
                 <p>Content: { item.content }</p>
             </div>

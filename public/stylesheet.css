@@ -10,9 +10,9 @@ body {
 
 .nav-logo { height: 35px; }
 .ui.menu { background-color: #1e272e; }
-#nav { height: 100px; margin-bottom: 0; }
+#nav { height: 75px; margin-bottom: 0; }
 #nav .item {
-    font-size: 26px;
+    font-size: 18px;
 }
 
 h1 { text-align: center; }
@@ -73,6 +73,7 @@ label {
     cursor: pointer
 }
 
+.spinner-wrapper { display: flex; justify-content: center; align-items: center; }
 /* ==================== BLOG ==================== */
 
 .post {

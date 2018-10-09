@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Grid, Image } from 'semantic-ui-react'
+// import { CSSTransition } from 'react-transition-group'
 
 class Home extends Component {
     render() {

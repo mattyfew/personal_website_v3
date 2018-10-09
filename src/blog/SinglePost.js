@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPost } from '../actions'
+import { BounceLoader } from 'react-spinners'
+import Remarkable from 'remarkable'
+const md = new Remarkable()
 
 class SinglePost extends Component {
     componentDidMount() {
@@ -8,21 +11,32 @@ class SinglePost extends Component {
     }
 
     render() {
-        const { id, title, content, slug } = this.props.activePost
+        const { id, title, content } = this.props.activePost
+        const input = '# This is a header\n\nAnd this is a paragraph'
+
 
         if (!id) {
-            return (<div>Loading...</div>)
+            return (
+                <div className="spinner-wrapper">
+                    <BounceLoader
+                        color="#88105B"
+                        />
+                </div>
+            )
         }
 
         return (
-            <div>
+            <div id="single-post">
                 <h1>{ title }</h1>
 
-                <h2>This is one single post</h2>
+                <main>
+                    <div dangerouslySetInnerHTML={{ __html: md.render(input) }} />
+                </main>
             </div>
         )
     }
 }
+
 
 function mapStateToProps(state) {
     return {
