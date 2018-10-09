@@ -30,7 +30,7 @@ class SinglePost extends Component {
                 <h1>{ title }</h1>
 
                 <main>
-                    <div dangerouslySetInnerHTML={{ __html: md.render(input) }} />
+                    <div dangerouslySetInnerHTML={{ __html: md.render(content) }} />
                 </main>
             </div>
         )

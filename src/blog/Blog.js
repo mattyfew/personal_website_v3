@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPosts } from '../actions'
 import { Link } from 'react-router-dom'
+import moment from 'moment'
 
 class Blog extends Component {
     constructor() {
@@ -15,13 +16,17 @@ class Blog extends Component {
     }
 
     renderPosts() {
-        return this.props.posts.map(item => (
-            <div className="post" key={ item.id }>
-                <h3><Link to={`/blog/${item.slug}`}>{ item.title }</Link></h3>
-                <p>Slug: { item.slug }</p>
-                <p>Content: { item.content }</p>
-            </div>
-        ))
+        return this.props.posts.map(item => {
+            console.log(moment(item.created_at).format("MM-DD-YYYY"));
+            return (
+                <div className="post" key={ item.id }>
+                    <h3><Link to={`/blog/${item.slug}`}>{ item.title }</Link></h3>
+                    {/*<p>Date: { moment(item.created_at, moment.ISO_8601) }</p>*/}
+                    <p>Slug: { item.slug }</p>
+                    <p>Content: { item.content }</p>
+                </div>
+            )
+        })
     }
 
     render() {
@@ -31,9 +36,7 @@ class Blog extends Component {
 
         return (
             <div>
-                <h1>Blog</h1>
-
-                <h2>A list of recent articles will be here</h2>
+                <h1>Blog Archive</h1>
 
                 <div id="posts-container">
                     { this.renderPosts() }
