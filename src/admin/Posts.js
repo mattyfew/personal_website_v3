@@ -3,11 +3,19 @@ import { connect } from 'react-redux'
 import { fetchPosts, deletePost } from '../actions'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
+import Modal from 'react-modal'
+import { Button } from 'semantic-ui-react'
+
+Modal.setAppElement('main')
 
 class Posts extends Component {
     constructor() {
         super()
+        this.state = {
+            modalIsOpen: false
+        }
         this.renderPosts = this.renderPosts.bind(this)
+        this.deletePost = this.deletePost.bind(this)
     }
 
     componentDidMount() {
@@ -21,7 +29,8 @@ class Posts extends Component {
             <div className="post" key={ item.id }>
                 <div className="edit-card-options">
                     <Link to={`/post/${item.slug}`}><img src="/icons/edit-icon.svg" alt="edit"/></Link>
-                    <img onClick={ () => dispatch(deletePost(item.id)) } src="/icons/x-icon.svg" alt="delete"/>
+                    <img onClick={ () => this.setState({ modalIsOpen: true, postToDelete: item.id }) } src="/icons/x-icon.svg" alt="delete"/>
+                    {/*<img onClick={ () => dispatch(deletePost(item.id)) } src="/icons/x-icon.svg" alt="delete"/>*/}
                 </div>
 
                 <h3><Link to={`/post/${item.slug}`}>{ item.title }</Link></h3>
@@ -32,6 +41,11 @@ class Posts extends Component {
         ))
     }
 
+    deletePost() {
+        this.props.dispatch(deletePost(this.state.postToDelete))
+        this.setState({ modalIsOpen: false, postToDelete: null })
+    }
+
     render() {
         if(!this.props.posts.length) {
             return (<div>Loading</div>)
@@ -39,6 +53,16 @@ class Posts extends Component {
 
         return (
             <div id="posts-container">
+                <Modal
+                    style={customStyles}
+                    isOpen={this.state.modalIsOpen}
+                    contentLabel="Example Modal"
+                >
+                    <h3>Are you sure you want to delete this post?</h3>
+                    <Button onClick={ this.deletePost } negative>DELETE</Button>
+                </Modal>
+
+
                 <h2>Posts</h2>
 
                 { this.renderPosts() }
@@ -46,6 +70,12 @@ class Posts extends Component {
         )
     }
 }
+const customStyles = {
+    content: {
+        color: 'red'
+    }
+}
+
 
 function mapStateToProps(state) {
     return {

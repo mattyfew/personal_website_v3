@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Footer from './Footer'
 import { Grid } from 'semantic-ui-react'
 // import { TweenLite } from 'gsap'
 import { TimelineLite } from "gsap";
@@ -26,7 +27,7 @@ class About extends Component {
 
                 <p>I've recently decided I want to break into the blogosphere and start writing.  The articles I write span different categories - web development, self help, music, philosophy - I don't like to limit myself to one topic.  Perhaps later on I will settle into a niche market, but for now, I'm happily erratic and all over the place.</p>
 
-                <section>
+                <section id="developer-profile-section">
                     <h2>Developer Profile</h2>
                     <Grid>
                         <Grid.Column width={ 8 }>
@@ -52,6 +53,8 @@ class About extends Component {
                         </Grid.Column>
                     </Grid>
                 </section>
+
+                <Footer />
             </div>
         )
     }

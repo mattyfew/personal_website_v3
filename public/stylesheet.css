@@ -62,6 +62,13 @@ label { color: white !important; }
     font-size: 24px;
     padding: 8px 0;
 }
+/* #developer-profile-section {
+    background-color: grey
+} */
+#developer-profile-section h2 {
+    font-size: 40px;
+}
+
 
 
 /* ==================== ADMIN ==================== */
@@ -88,6 +95,8 @@ label { color: white !important; }
 }
 
 .spinner-wrapper { display: flex; justify-content: center; align-items: center; }
+
+#my-modal { color: red; }
 
 /* ==================== BLOG ==================== */
 
