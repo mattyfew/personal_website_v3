@@ -14,6 +14,7 @@ class Nav extends Component {
             <Menu id="nav">
                 <MenuItem><Link to="/"><img className="nav-logo" src="/img/logo-mf.svg" alt=""/></Link></MenuItem>
                 <MenuItem><Link to="/about">About</Link></MenuItem>
+                <MenuItem><Link to="/portfolio">Portolio</Link></MenuItem>
                 <MenuItem><Link to="/blog">Blog</Link></MenuItem>
             </Menu>
         )

@@ -4,12 +4,14 @@ import { fetchPosts } from '../actions'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 import { Grid } from 'semantic-ui-react'
-
+import { TimelineLite } from 'gsap'
 
 class Blog extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.renderPosts = this.renderPosts.bind(this)
+        this.myTween = new TimelineLite({paused: true})
+        this.myElements = []
     }
 
     componentDidMount() {
@@ -17,14 +19,17 @@ class Blog extends Component {
     }
 
     renderPosts() {
-        return this.props.posts.map(item => {
+        const self = this
+        return self.props.posts.map((item, i) => {
             return (
-                <Grid.Row className="post" key={ item.id }>
+                <div></div>
+                <Grid.Row className="post" key={ item.id } ref={card => self.myElements[i] = card} >
                     <Grid.Column width={ 4 }><h3><Link to={`/blog/${item.slug}`}>{ item.title }</Link></h3></Grid.Column>
                     <Grid.Column width={ 12 }><p>Published: { moment(item.created_at).format("MMM DD, YYYY") }</p></Grid.Column>
                 </Grid.Row>
             )
         })
+        // this.myTween.staggerTo(this.myElements, 0.5, {y: 0, autoAlpha: 1}, 0.1);
     }
 
     render() {

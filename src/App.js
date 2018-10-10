@@ -6,6 +6,7 @@ import Nav from './Nav'
 import Blog from './blog/Blog'
 import SinglePost from './blog/SinglePost'
 import MainWrapper from './MainWrapper'
+import Portfolio from './Portfolio'
 
 class App extends Component {
     render() {
@@ -19,6 +20,7 @@ class App extends Component {
                         <MainWrapper>
                             <Route exact path="/" component={ Home } />
                             <Route exact path="/about" component={ About } />
+                            <Route exact path="/portfolio" component={ Portfolio } />
                             <Route exact path="/blog" component={ Blog } />
                             <Route exact path="/blog/:slug" component={ SinglePost } />
                         </MainWrapper>
