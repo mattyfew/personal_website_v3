@@ -16,6 +16,7 @@ class Posts extends Component {
         }
         this.renderPosts = this.renderPosts.bind(this)
         this.deletePost = this.deletePost.bind(this)
+        this.handleCloseModal = this.handleCloseModal.bind(this)
     }
 
     componentDidMount() {
@@ -30,7 +31,6 @@ class Posts extends Component {
                 <div className="edit-card-options">
                     <Link to={`/post/${item.slug}`}><img src="/icons/edit-icon.svg" alt="edit"/></Link>
                     <img onClick={ () => this.setState({ modalIsOpen: true, postToDelete: item.id }) } src="/icons/x-icon.svg" alt="delete"/>
-                    {/*<img onClick={ () => dispatch(deletePost(item.id)) } src="/icons/x-icon.svg" alt="delete"/>*/}
                 </div>
 
                 <h3><Link to={`/post/${item.slug}`}>{ item.title }</Link></h3>
@@ -46,6 +46,11 @@ class Posts extends Component {
         this.setState({ modalIsOpen: false, postToDelete: null })
     }
 
+    handleCloseModal () {
+        this.setState({ modalIsOpen: false });
+    }
+
+
     render() {
         if(!this.props.posts.length) {
             return (<div>Loading</div>)
@@ -57,8 +62,11 @@ class Posts extends Component {
                     style={customStyles}
                     isOpen={this.state.modalIsOpen}
                     contentLabel="Example Modal"
+                    onRequestClose={this.handleCloseModal}
+                    shouldCloseOnOverlayClick={true}
                 >
                     <h3>Are you sure you want to delete this post?</h3>
+                    <Button onClick={ () => this.setState({ modalIsOpen: false }) }>CANCEL</Button>
                     <Button onClick={ this.deletePost } negative>DELETE</Button>
                 </Modal>
 
@@ -72,7 +80,13 @@ class Posts extends Component {
 }
 const customStyles = {
     content: {
-        color: 'red'
+        color: 'red',
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)'
     }
 }
 
