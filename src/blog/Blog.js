@@ -20,17 +20,17 @@ class Blog extends Component {
 
     renderPosts() {
         const self = this
+        this.myTween.staggerTo(this.myElements, 0.5, {y: 0, autoAlpha: 1}, 0.1);
         return self.props.posts.map((item, i) => {
             return (
-                <div ref={card => self.myElements[i] = card}>
-                    <Grid.Row className="post" key={ item.id }  >
+                <div ref={card => self.myElements[i] = card} key={ item.id }>
+                    <Grid.Row className="post">
                         <Grid.Column width={ 4 }><h3><Link to={`/blog/${item.slug}`}>{ item.title }</Link></h3></Grid.Column>
                         <Grid.Column width={ 12 }><p>Published: { moment(item.created_at).format("MMM DD, YYYY") }</p></Grid.Column>
                     </Grid.Row>
                 </div>
             )
         })
-        // this.myTween.staggerTo(this.myElements, 0.5, {y: 0, autoAlpha: 1}, 0.1);
     }
 
     render() {

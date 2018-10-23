@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { MenuItem, Menu } from 'semantic-ui-react'
-import MainWrapper from './MainWrapper'
+import MainWrapper from '../MainWrapper'
 
 class Nav extends Component {
     constructor() {
